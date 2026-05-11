@@ -163,6 +163,7 @@ void sendAudioToServer(const char *label) {
 }
 
 void startRecording() {
+    digitalWrite(D7, HIGH);
     samplesRecorded = 0;
     recording = true;
     readyToSend = false;
@@ -173,6 +174,7 @@ void startRecording() {
 }
 
 void stopRecording() {
+    digitalWrite(D7, LOW);
     Microphone_PDM::instance().stop();
 
     recording = false;
